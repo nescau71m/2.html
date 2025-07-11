@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login / Cadastro - Gamer Zone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav>
+    <a href="index.html">🏠 Início</a>
+    <a href="noticias.html">📰 Notícias</a>
+    <a href="entrevistas.html">🎤 Entrevistas</a>
+    <a href="jogos.html">🎮 Jogos</a>
+    <a href="login.html">🔐 Login</a>
+  </nav>
+
+  <div class="container">
+    <header>🔐 Login / Cadastro Gamer</header>
+    <main>
+      <div class="container-login">
+        <h2 id="titulo">Entrar</h2>
+        <form id="formulario">
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="password" id="senha" placeholder="Senha" required />
+          <input type="password" id="confirmar" placeholder="Confirmar Senha" style="display:none" />
+          <button type="submit">Entrar</button>
+        </form>
+        <div class="trocar" onclick="trocarModo()">Não tem conta? Cadastre-se</div>
+      </div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
+  <script>
+    let modoCadastro = false;
+    function trocarModo() {
+      modoCadastro = !modoCadastro;
+      const titulo = document.getElementById('titulo');
+      const confirmar = document.getElementById('confirmar');
+      const botao = document.querySelector('button');
+      const textoTrocar = document.querySelector('.trocar');
+
+      if (modoCadastro) {
+        titulo.textContent = 'Cadastrar';
+        confirmar.style.display = 'block';
+        botao.textContent = 'Cadastrar';
+        textoTrocar.textContent = 'Já tem conta? Entrar';
+      } else {
+        titulo.textContent = 'Entrar';
+        confirmar.style.display = 'none';
+        botao.textContent = 'Entrar';
+        textoTrocar.textContent = 'Não tem conta? Cadastre-se';
+      }
+    }
+  </script>
+</body>
+</html>
